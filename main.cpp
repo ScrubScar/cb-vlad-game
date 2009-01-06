@@ -6,6 +6,8 @@
 #include "MapOne.h"
 #include "engine.h"
 
+// git test to see how it changes files
+// now to test git merge
 using namespace std;
 
 int main( int argc, char* args[] )
