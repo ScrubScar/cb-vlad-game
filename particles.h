@@ -3,16 +3,17 @@ class particles
 {
       public:
              particles();
-             ~particles();
+             virtual ~particles();
 
-             void init_particles(int x, int y,SDL_Surface *levelSurface);
+             virtual void init_particles(int x, int y);
+             void main_init(int x, int y, SDL_Surface* levelSurface);
              void show_particles(int x, int y);
-             void move_particle(int x, int y);
+             virtual void move_particles(int x, int y);
              void start_particles();
              void blit_particles();
 
 
-      private:
+      protected:
               SDL_Rect particleRect[10];
               SDL_Rect clippingRect;
 
@@ -47,6 +48,10 @@ particles::particles()
     colorParticles = NULL;
     blackWhiteParticles = NULL;
     level_surface = NULL;
+<<<<<<< HEAD:particles.h
+=======
+
+>>>>>>> particles-test:particles.h
 }
 
 particles::~particles()
@@ -71,12 +76,15 @@ particles::~particles()
     level_surface = NULL;
 }
 
-void particles::init_particles(int x, int y, SDL_Surface *levelSurface)
+void particles::main_init(int x, int y, SDL_Surface *levelSurface)
 {
      level_surface = levelSurface;
      colorParticles = imageLoader.load_image("sprites/colorGradient.gif");
      blackWhiteParticles = imageLoader.load_image("sprites/blackWhiteGradient.gif");
+     init_particles(x,y);
+}
 
+<<<<<<< HEAD:particles.h
      clippingRect.x = 0;
      clippingRect.y = 8;
      clippingRect.w = 2;
@@ -93,12 +101,17 @@ void particles::init_particles(int x, int y, SDL_Surface *levelSurface)
          moveHeight[i] = 20;
          }
 
+=======
+void particles::init_particles(int x, int y)
+{
+    return;
+>>>>>>> particles-test:particles.h
 }
 
 void particles::show_particles(int x, int y)
 {
    start_particles();
-   move_particle(x, y);
+   move_particles(x, y);
    blit_particles();
 }
 
@@ -112,32 +125,9 @@ void particles::start_particles()
 }
 
 
-void particles::move_particle(int x, int y)
+void particles::move_particles(int x, int y)
 {
-        srand((unsigned)time(0));
-        for(int i = 0; i < 10; i++){
-                particleRect[i].x = x + i*2;
-                if(particleStarted[i] ==  true) {
-                        if(moveHeight[i] >= (rand()%15) + 10){
-                            particleRect[i].y = y;
-                            moveHeight[i] = 0;
-                            particleStarted[i] = false;
-                            }
-
-                        else {
-                              int holdRand = (rand()%3)+1;
-                              if(holdRand < 0){ holdRand = 1;}
-                              particleRect[i].y = particleRect[i].y - holdRand;
-                              }
-
-                         moveHeight[i]++;
-                         clippingRect.y++;
-
-                         if(clippingRect.y > 20){
-                             clippingRect.y = 15;
-                             }
-                }
-         }
+    return;
 }
 
 void particles::blit_particles()

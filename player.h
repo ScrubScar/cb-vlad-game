@@ -246,6 +246,8 @@ int player::pulse(SDL_Event event, NCP *generic_ncp[2])
          }
      startTicks = SDL_GetTicks();
      imageLoader.apply_surface(playerRect.x, playerRect.y, playerChange, screen);
+
+     return 0;
 }
 
 void player::set_player_x( int x )
@@ -457,7 +459,7 @@ void player::gravity()
             }
 
          if(playerIsFalling == false )
-         { playerCollisionDirection == 1;}
+         { playerCollisionDirection = 1;}
 
 
          if( peakOfJump < 10 )
