@@ -4,7 +4,7 @@ class NCP
       public:
              NCP();
              NCP(int start_location_x, int start_location_y);
-             ~NCP();
+             virtual ~NCP();
 
              virtual SDL_Surface * get_Surface();
              SDL_Rect &get_ncp_rect();
@@ -147,6 +147,7 @@ int NCP::pulse(SDL_Rect playerRect, status_change &status_code)
      if(ncpIsAlive){
           move(status_code);
          }
+    return 0;
 }
 
 void NCP::move(status_change &status_code)

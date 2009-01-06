@@ -1,20 +1,18 @@
-class glitter : public particles
+class particles_glitter : public particles
 {
      public:
-            glitter();
-            ~glitter();
+            particles_glitter();
+            ~particles_glitter();
 
-            void init_particles(int x, int y);
             void move_particles(int x, int y);
-            void show_particles(int x, int y);
-
+            void init_particles(int x, int y);
 
      private:
 
 
 };
 
-glitter::glitter()
+particles_glitter::particles_glitter()
 {
     for(int i = 0; i < 10; i++){
             particleRect[i].x = 0;
@@ -33,11 +31,10 @@ glitter::glitter()
 
     colorParticles = NULL;
     blackWhiteParticles = NULL;
-    currentSurface = NULL;
     level_surface = NULL;
 }
 
-glitter::~glitter()
+particles_glitter::~particles_glitter()
 {
     for(int i = 0; i < 10; i++){
             particleRect[i].x = 0;
@@ -56,11 +53,10 @@ glitter::~glitter()
 
     colorParticles = NULL;
     blackWhiteParticles = NULL;
-    currentSurface = NULL;
     level_surface = NULL;
 }
 
-void glitter::init_particles(int x, int y)
+void particles_glitter::init_particles(int x, int y)
 {
      clippingRect.x = 0;
      clippingRect.y = 8;
@@ -79,7 +75,7 @@ void glitter::init_particles(int x, int y)
          }
 }
 
-void glitter::move_particles(int x, int y)
+void particles_glitter::move_particles(int x, int y)
 {
         srand((unsigned)time(0));
         for(int i = 0; i < 10; i++){
@@ -105,12 +101,5 @@ void glitter::move_particles(int x, int y)
                              }
                 }
          }
-}
-
-void glitter::show_particles(int x, int y)
-{
-        start_particles();
-   move_particle(x, y);
-   blit_particles();
 }
 

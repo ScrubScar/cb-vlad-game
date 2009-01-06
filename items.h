@@ -29,7 +29,7 @@ class items
                 int itemJumpHeight;
                 int direction;
                 enum STATE_CODE{ DAMAGE = 1, HEAL = 2, WARP = 3, NONE = 0 };
-                particles testParticle;
+                particles_glitter testParticle;
 
 };
 
@@ -70,7 +70,7 @@ void items::item_init(SDL_Rect ncpRect, SDL_Surface *main_level_surface)
      itemRect.h = 20;
      itemHasInit = true;
      itemNotAttained = true;
-     testParticle.init_particles(itemRect.x, itemRect.y, level_surface);
+     testParticle.main_init(itemRect.x, itemRect.y, level_surface);
 }
 
 void items::item_init(int x, int y, SDL_Surface *main_level_surface)
@@ -82,7 +82,7 @@ void items::item_init(int x, int y, SDL_Surface *main_level_surface)
      itemRect.w = 20;
      itemRect.h = 20;
      itemNotAttained = true;
-     testParticle.init_particles(itemRect.x, itemRect.y, level_surface);
+     testParticle.main_init(itemRect.x, itemRect.y, level_surface);
 }
 
 bool items::show_item(SDL_Rect ncpRect, SDL_Rect playerRect, SDL_Surface *main_level_surface, status_change &status_code)
@@ -118,6 +118,8 @@ bool items::show_item(SDL_Rect playerRect, status_change & status_code )
      else{
           itemNotAttained = true;
           }
+
+    return true;
  }
 
 void items::item_gravity()

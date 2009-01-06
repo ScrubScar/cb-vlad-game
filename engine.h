@@ -10,7 +10,7 @@
 #include "camera.h"
 #include "particles.h"
 //#include "smoke-particles.h"
-//#include "glitter-particles.h"
+#include "glitter-particles.h"
 #include "items.h"
 #include "ncp.h"
 #include "NcpBehemoth.h"
@@ -63,7 +63,7 @@ class engine
               NCP *generic_ncp[2];
               imageLoad allImageLoad;
               collision check_collision;
-              particles testParticle;
+              particles_glitter testParticle;
               map_load map_loader;
               camera main_camera;
               player_status_menu main_player_frame;
@@ -110,7 +110,7 @@ void engine::init( const int screen_width, const int screen_height )
 
      main_player_frame.main_init(screen);
 
-     testParticle.init_particles(100, 100, levelSurface);
+     testParticle.main_init(100, 100, levelSurface);
 
      map_loader.init(levelSurface);
 
@@ -166,6 +166,7 @@ int engine::heartBeat(SDL_Event event)
         }
 
      startTick = SDL_GetTicks();
+     return 0;
      }
 
 

@@ -106,6 +106,7 @@ int Behemoth::pulse(SDL_Rect playerRect, status_change &status_code)
      if(ncpIsAlive == true){
           move(status_code);
          }
+    return 0;
 }
 
 void Behemoth::move( status_change &status_code)

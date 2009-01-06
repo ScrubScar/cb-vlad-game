@@ -3,7 +3,7 @@ class menu
 {
       public:
              menu();
-             ~menu();
+             virtual ~menu();
 
              void main_init( SDL_Surface *main_screen );
              virtual void init();

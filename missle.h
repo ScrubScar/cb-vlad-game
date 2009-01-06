@@ -108,7 +108,8 @@ int missle::missleMove(NCP *generic_ncp[2])
           missleRect.x = missleRect.x - 25;
           return 0;
           }
-     }
+    return 0;
+}
 
 void missle::start_missle(bool missleActivate, int directionFacing)
 {

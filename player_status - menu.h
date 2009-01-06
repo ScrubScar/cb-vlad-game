@@ -3,7 +3,7 @@ class player_status_menu : public menu
 {
       public:
           player_status_menu();
-          ~player_status_menu();
+          virtual ~player_status_menu();
 
           void init();
           void show_menu(int player_hitpoints);
