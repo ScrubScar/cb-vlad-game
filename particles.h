@@ -18,11 +18,8 @@ class particles
 
               SDL_Surface *colorParticles;
               SDL_Surface *blackWhiteParticles;
-              SDL_Surface *currentSurface;
               SDL_Surface *level_surface;
 
-              int swayLeft;
-              int swayRight;
               int moveHeight[10];
               bool particleStarted[10];
 
@@ -49,11 +46,7 @@ particles::particles()
 
     colorParticles = NULL;
     blackWhiteParticles = NULL;
-    currentSurface = NULL;
     level_surface = NULL;
-
-    swayLeft = 0;
-    swayRight = 0;
 }
 
 particles::~particles()
@@ -75,11 +68,7 @@ particles::~particles()
 
     colorParticles = NULL;
     blackWhiteParticles = NULL;
-    currentSurface = NULL;
     level_surface = NULL;
-
-    swayLeft = 0;
-    swayRight = 0;
 }
 
 void particles::init_particles(int x, int y, SDL_Surface *levelSurface)
@@ -103,8 +92,7 @@ void particles::init_particles(int x, int y, SDL_Surface *levelSurface)
          particleStarted[i] = false;
          moveHeight[i] = 20;
          }
-     swayLeft = 0;
-     swayRight = 0;
+
 }
 
 void particles::show_particles(int x, int y)

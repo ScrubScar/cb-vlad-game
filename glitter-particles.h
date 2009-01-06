@@ -109,7 +109,7 @@ void glitter::move_particles(int x, int y)
 
 void glitter::show_particles(int x, int y)
 {
-        start_particles();
+   start_particles();
    move_particle(x, y);
    blit_particles();
 }
