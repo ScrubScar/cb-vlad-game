@@ -48,10 +48,6 @@ particles::particles()
     colorParticles = NULL;
     blackWhiteParticles = NULL;
     level_surface = NULL;
-<<<<<<< HEAD:particles.h
-=======
-
->>>>>>> particles-test:particles.h
 }
 
 particles::~particles()
@@ -85,6 +81,7 @@ void particles::main_init(int x, int y, SDL_Surface *levelSurface)
 }
 
 <<<<<<< HEAD:particles.h
+<<<<<<< HEAD:particles.h
      clippingRect.x = 0;
      clippingRect.y = 8;
      clippingRect.w = 2;
@@ -101,6 +98,11 @@ void particles::main_init(int x, int y, SDL_Surface *levelSurface)
          moveHeight[i] = 20;
          }
 
+=======
+void particles::init_particles(int x, int y)
+{
+    return;
+>>>>>>> particles-test:particles.h
 =======
 void particles::init_particles(int x, int y)
 {
