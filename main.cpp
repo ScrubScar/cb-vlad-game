@@ -7,7 +7,10 @@
 #include "engine.h"
 
 // git test to see how it changes files
+<<<<<<< HEAD:main.cpp
 // now to test git merge
+=======
+>>>>>>> particles-test:main.cpp
 using namespace std;
 
 int main( int argc, char* args[] )
