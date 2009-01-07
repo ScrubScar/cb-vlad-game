@@ -80,34 +80,10 @@ void particles::main_init(int x, int y, SDL_Surface *levelSurface)
      init_particles(x,y);
 }
 
-<<<<<<< HEAD:particles.h
-<<<<<<< HEAD:particles.h
-     clippingRect.x = 0;
-     clippingRect.y = 8;
-     clippingRect.w = 2;
-     clippingRect.h = 2;
 
-     for(int i = 0; i < 10; i++)
-     {
-         particleRect[i].x = x;
-         particleRect[i].y = y;
-         particleRect[i].w = 2;
-         particleRect[i].h = 2;
-
-         particleStarted[i] = false;
-         moveHeight[i] = 20;
-         }
-
-=======
 void particles::init_particles(int x, int y)
 {
     return;
->>>>>>> particles-test:particles.h
-=======
-void particles::init_particles(int x, int y)
-{
-    return;
->>>>>>> particles-test:particles.h
 }
 
 void particles::show_particles(int x, int y)

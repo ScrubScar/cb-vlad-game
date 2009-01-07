@@ -9,7 +9,7 @@
 #include "LoadMap.h"
 #include "camera.h"
 #include "particles.h"
-//#include "smoke-particles.h"
+#include "smoke-particles.h"
 #include "glitter-particles.h"
 #include "items.h"
 #include "ncp.h"
@@ -48,6 +48,7 @@ class engine
 
               SDL_Surface *playerSurface;
               SDL_Surface *screen;
+              SDL_Surface *blendTest;
 
               SDL_Surface *swift_buffer;
               SDL_Surface *ncp_hitpoints_display;
@@ -105,6 +106,7 @@ void engine::init( const int screen_width, const int screen_height )
      levelSurface = SDL_LoadBMP("sprites/buffer.bmp");
      screen = SDL_SetVideoMode( screen_width, screen_height, 32, SDL_HWSURFACE);
      swift_buffer = allImageLoad.load_image("sprites/buff.gif");
+     blendTest = allImageLoad.load_image("sprites/blendTest2.gif");
 
      main_camera.init(LEVEL_WIDTH, LEVEL_HEIGHT, screen_width, screen_height);
 
@@ -173,11 +175,11 @@ int engine::heartBeat(SDL_Event event)
 
 void engine::load_map()
 {
-    map_loader.load_map();
 
+    map_loader.load_map();
+        apply_surface(0,0, blendTest, levelSurface);
     SDL_BlitSurface(levelSurface, &main_camera.get_camera_rect(), screen, NULL);
     apply_surface(main_camera.get_camera_x(), main_camera.get_camera_y(), swift_buffer, levelSurface);
-
     place_ncps();
     draw_player_menus();
 }
