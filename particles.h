@@ -19,7 +19,9 @@ class particles
 
               SDL_Surface *colorParticles;
               SDL_Surface *blackWhiteParticles;
+              SDL_Surface *transparentBlackParticles;
               SDL_Surface *level_surface;
+              SDL_Surface *current_surface;
 
               int moveHeight[10];
               bool particleStarted[10];
@@ -74,9 +76,11 @@ particles::~particles()
 
 void particles::main_init(int x, int y, SDL_Surface *levelSurface)
 {
+     current_surface = NULL;
      level_surface = levelSurface;
      colorParticles = imageLoader.load_image("sprites/colorGradient.gif");
      blackWhiteParticles = imageLoader.load_image("sprites/blackWhiteGradient.gif");
+     transparentBlackParticles = imageLoader.load_image("sprites/blendTest2.gif");
      init_particles(x,y);
 }
 
@@ -112,7 +116,7 @@ void particles::blit_particles()
 {
         for(int i = 0 ; i < 10 ; i++ ){
          if(particleStarted[i]){
-             SDL_BlitSurface(colorParticles, &clippingRect, level_surface, &particleRect[i]);
+             SDL_BlitSurface(current_surface, &clippingRect, level_surface, &particleRect[i]);
              }
         }
 }

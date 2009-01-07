@@ -105,7 +105,9 @@ int Behemoth::pulse(SDL_Rect playerRect, status_change &status_code)
 
      if(ncpIsAlive == true){
           move(status_code);
+          imageLoader.apply_surface(ncpRect.x, ncpRect.y, ncpChange, screen);
          }
+
     return 0;
 }
 

@@ -147,6 +147,7 @@ int NCP::pulse(SDL_Rect playerRect, status_change &status_code)
      if(ncpIsAlive){
           move(status_code);
          }
+
     return 0;
 }
 

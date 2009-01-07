@@ -15,8 +15,6 @@ class map_load
 
               imageLoad image_loader;
 
-
-
 };
 
 map_load::map_load()

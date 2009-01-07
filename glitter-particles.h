@@ -73,6 +73,8 @@ void particles_glitter::init_particles(int x, int y)
          particleStarted[i] = false;
          moveHeight[i] = 20;
          }
+
+    current_surface = colorParticles;
 }
 
 void particles_glitter::move_particles(int x, int y)
